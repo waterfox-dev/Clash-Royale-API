@@ -1,4 +1,7 @@
+from os import read
 from src.player import Player
+from src.calculator import Calculator
+
 from datetime import datetime
 
 import json 
@@ -22,7 +25,7 @@ for i in range(number_result):
         los_total += 1
         win = False
 
-    with open('team_result.csv', 'a', encoding='UTF8', newline='') as file :
+    with open('team_result.csv', 'a+', encoding='UTF8', newline='') as file :
         writer = csv.writer(file, delimiter = ',')
         card_list = []
 
@@ -36,4 +39,5 @@ for i in range(number_result):
 with open('algo_result.csv', 'a', encoding='UTF8') as file :
     writer = csv.writer(file)
     writer.writerow([str(datetime.now()), win_total, los_total, number_result])
+
 
